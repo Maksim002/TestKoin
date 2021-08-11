@@ -17,9 +17,11 @@ object ApplicationModule {
 
         viewModel {
             provideMainViewModel(get())
-            provideMainDogViewModel(get())
         }
 
+        viewModel {
+            provideMainDogViewModel(get())
+        }
     }
 
 
