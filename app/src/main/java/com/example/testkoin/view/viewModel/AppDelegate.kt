@@ -1,4 +1,4 @@
-package com.example.testkoin.view.viewMode
+package com.example.testkoin.view.viewModel
 
 import android.app.Application
 import com.example.testkoin.dependancy.ApplicationModule

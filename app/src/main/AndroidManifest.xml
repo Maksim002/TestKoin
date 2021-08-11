@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testkoin">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
-        android:name="com.example.testkoin.view.viewMode.AppDelegate"
+        android:name="com.example.testkoin.view.viewModel.AppDelegate"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

@@ -1,9 +1,11 @@
-package com.example.testkoin.view.viewMode
+package com.example.testkoin.view.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.beksar.testnotification.service.result.ExampleModel
 import com.example.testkoin.modelRepository.BaseRepository
+import com.timelysoft.tsjdomcom.service.ResultStatus
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import java.lang.Exception
@@ -11,14 +13,8 @@ import java.lang.Exception
 class MainDogModel: ViewModel(), KoinComponent {
 
     private val baseRep : BaseRepository by inject()
-    private val hello: MutableLiveData<String> by lazy(LazyThreadSafetyMode.NONE, initializer = { MutableLiveData<String>() } )
 
-    fun getStringValue(): LiveData<String> {
-        try {
-            hello.setValue(baseRep.giveInt())
-        }catch (e: Exception){
-            e.printStackTrace()
-        }
-        return hello
+    fun requestCountry() : LiveData<ResultStatus<ExampleModel>> {
+        return baseRep.requestCountryDetails()
     }
 }
