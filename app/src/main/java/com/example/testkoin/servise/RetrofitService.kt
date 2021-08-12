@@ -12,11 +12,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitService {
 
     val retrofitService = module {
-        factory {okHttpClient(get(), get())}
+        factory {client(get(), get())}
         factory { retrofit()}
+        factory { apiService()}
     }
 
-    fun okHttpClient(authInterceptor: AuthInterceptor, loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun client(authInterceptor: AuthInterceptor, loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient().newBuilder().addInterceptor(authInterceptor).addInterceptor(loggingInterceptor).build()
     }
 
