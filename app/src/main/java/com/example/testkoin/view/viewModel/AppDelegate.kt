@@ -19,7 +19,8 @@ class AppDelegate : Application() {
             androidFileProperties()
             koin.loadModules(// module list
                     listOf(
-                            ApplicationModule.applicationModule))
+                            ApplicationModule.applicationModule,
+                            ApiAccessories.apiAccessories))
         }
     }
 }

@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit
 
 
 object RetrofitService {
-  private var apiClient = ApiAccessories
-
 //    private val authInterceptor = Interceptor { chain ->
 //        val newUrl = chain.request().url
 //            .newBuilder()
@@ -35,7 +33,6 @@ object RetrofitService {
 
     private fun retrofit(baseUrl: String = "https://api.first.org/data/"): Retrofit =
         Retrofit.Builder()
-            .client(apiClient.client())
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())

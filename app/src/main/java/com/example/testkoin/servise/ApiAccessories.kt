@@ -6,16 +6,10 @@ import org.koin.dsl.module
 import java.util.concurrent.TimeUnit
 
 object ApiAccessories {
-//    var apiAccessories = module {
-//
-//        factory {
-//            authInterceptor()
-//        }
-//
-//        factory {
-//            client()
-//        }
-//    }
+    var apiAccessories = module {
+        factory {authInterceptor()}
+        factory {client()}
+    }
 
     private fun authInterceptor() = Interceptor { chain ->
         val newUrl = chain.request().url
@@ -31,7 +25,7 @@ object ApiAccessories {
         chain.proceed(newRequest)
     }
 
-    fun client() = OkHttpClient().newBuilder()
+    private fun client() = OkHttpClient().newBuilder()
             .addInterceptor(authInterceptor())
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
