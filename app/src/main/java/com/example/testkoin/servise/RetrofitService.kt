@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitService {
-
     val retrofitService = module {
         factory {client(get(), get())}
         factory { retrofit()}
