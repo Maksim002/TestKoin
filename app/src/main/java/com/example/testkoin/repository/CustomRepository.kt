@@ -1,18 +1,18 @@
-package com.example.testkoin.servise
+package com.example.testkoin.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.beksar.testnotification.service.result.ExampleModel
+import com.example.testkoin.model.ExampleModel
 import com.example.testkoin.modelRepository.BaseRepository
 import com.timelysoft.tsjdomcom.service.ResultStatus
-import com.timelysoft.tsjdomcom.service.RetrofitService
+import com.example.testkoin.network.ApiService
 import kotlinx.coroutines.Dispatchers
 
-class CustomRepository() : BaseRepository{
+class CustomRepository(private val apiService: ApiService) : BaseRepository{
     override fun requestCountryDetails(): LiveData<ResultStatus<ExampleModel>> {
         val result  = liveData<ResultStatus<ExampleModel>>(Dispatchers.IO) {
             try {
-                val response = RetrofitService.apiService().news()
+                val response = apiService.news()
                 when {
                     response.isSuccessful -> {
                         if (response.body() != null) {

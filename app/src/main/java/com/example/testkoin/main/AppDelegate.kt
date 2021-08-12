@@ -1,8 +1,8 @@
-package com.example.testkoin.view.viewModel
+package com.example.testkoin.main
 
 import android.app.Application
-import com.example.testkoin.dependancy.ApplicationModule
-import com.timelysoft.tsjdomcom.service.RetrofitService
+import com.example.testkoin.di.ApplicationModule
+import com.example.testkoin.di.RetrofitService
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger

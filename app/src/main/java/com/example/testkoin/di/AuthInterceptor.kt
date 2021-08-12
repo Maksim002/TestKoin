@@ -1,4 +1,4 @@
-package com.example.testkoin.servise
+package com.example.testkoin.di
 
 import okhttp3.Interceptor
 import okhttp3.Response

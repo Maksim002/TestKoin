@@ -1,10 +1,9 @@
-package com.timelysoft.tsjdomcom.service
+package com.example.testkoin.network
 
 
-import com.beksar.testnotification.service.result.ExampleModel
+import com.example.testkoin.model.ExampleModel
 import retrofit2.Response
 import retrofit2.http.*
-import java.lang.Exception
 
 
 interface ApiService {

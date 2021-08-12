@@ -1,13 +1,11 @@
-package com.example.testkoin.view.main
+package com.example.testkoin.main
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.testkoin.R
-import com.example.testkoin.view.viewModel.MainDogModel
 import com.timelysoft.tsjdomcom.service.Status
 import com.timelysoft.tsjdomcom.utils.LoadingAlert
 import kotlinx.android.synthetic.main.activity_main.*

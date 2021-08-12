@@ -1,4 +1,4 @@
-package com.beksar.testnotification.service.result
+package com.example.testkoin.model
 
 
 import com.google.gson.annotations.Expose
