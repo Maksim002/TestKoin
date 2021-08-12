@@ -7,9 +7,8 @@ import com.example.testkoin.modelRepository.BaseRepository
 import com.timelysoft.tsjdomcom.service.ResultStatus
 import com.timelysoft.tsjdomcom.service.RetrofitService
 import kotlinx.coroutines.Dispatchers
-import org.koin.core.KoinComponent
 
-class CustomRepository() : BaseRepository, KoinComponent {
+class CustomRepository() : BaseRepository{
     override fun requestCountryDetails(): LiveData<ResultStatus<ExampleModel>> {
         val result  = liveData<ResultStatus<ExampleModel>>(Dispatchers.IO) {
             try {
