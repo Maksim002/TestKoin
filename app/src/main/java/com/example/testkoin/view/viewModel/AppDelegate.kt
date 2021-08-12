@@ -2,7 +2,7 @@ package com.example.testkoin.view.viewModel
 
 import android.app.Application
 import com.example.testkoin.dependancy.ApplicationModule
-import com.example.testkoin.servise.ApiAccessories
+import com.timelysoft.tsjdomcom.service.RetrofitService
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -20,7 +20,7 @@ class AppDelegate : Application() {
             koin.loadModules(// module list
                     listOf(
                             ApplicationModule.applicationModule,
-                            ApiAccessories.apiAccessories))
+                            RetrofitService.retrofitService))
         }
     }
 }
