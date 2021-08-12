@@ -1,5 +1,6 @@
 package com.timelysoft.tsjdomcom.service
 
+import com.example.testkoin.servise.ApiAccessories
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -9,32 +10,32 @@ import java.util.concurrent.TimeUnit
 
 
 object RetrofitService {
+  private var apiClient = ApiAccessories
 
-    private val authInterceptor = Interceptor { chain ->
-        val newUrl = chain.request().url
-            .newBuilder()
-            .build()
+//    private val authInterceptor = Interceptor { chain ->
+//        val newUrl = chain.request().url
+//            .newBuilder()
+//            .build()
+//
+//        val newRequest = chain.request()
+//            .newBuilder()
+//            .addHeader("Authorization", "bearer ")
+//            .url(newUrl)
+//            .build()
+//
+//        chain.proceed(newRequest)
+//    }
 
-        val newRequest = chain.request()
-            .newBuilder()
-            .addHeader("Authorization", "bearer ")
-            .url(newUrl)
-            .build()
-
-        chain.proceed(newRequest)
-    }
-
-    private val client =
-        OkHttpClient().newBuilder()
-            .addInterceptor(authInterceptor)
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
-            .writeTimeout(90, TimeUnit.SECONDS)
-            .build()
+//    private val client = OkHttpClient().newBuilder()
+//            .addInterceptor(authInterceptor)
+//            .connectTimeout(120, TimeUnit.SECONDS)
+//            .readTimeout(120, TimeUnit.SECONDS)
+//            .writeTimeout(90, TimeUnit.SECONDS)
+//            .build()
 
     private fun retrofit(baseUrl: String = "https://api.first.org/data/"): Retrofit =
         Retrofit.Builder()
-            .client(client)
+            .client(apiClient.client())
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
